@@ -10,6 +10,7 @@ export class PopUpNotificationsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('opening')
   }
 
 }

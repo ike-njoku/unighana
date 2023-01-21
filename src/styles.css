@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+* Stylesheet created by ike-njoku david chukwunweike
+* ikenjokudc@gmail.com
+* January, 2023
+*/
+
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}

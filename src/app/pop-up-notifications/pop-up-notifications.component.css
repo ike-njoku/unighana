@@ -1,0 +1,12 @@
+.pop-up {
+  position: fixed;
+  background-color: black;
+  color: white;
+  bottom: 1%;
+  padding: 2.5%;
+  left: -300% ;
+}
+
+.active {
+  left: 0%
+}
