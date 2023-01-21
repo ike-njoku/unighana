@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiGatewayService } from '../api-gateway.service';
 import { CREATE_PASSWORD_REGEX } from '../constants';
 
 @Component({
@@ -10,7 +11,8 @@ import { CREATE_PASSWORD_REGEX } from '../constants';
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private readonly formBuilder: FormBuilder
+    private readonly formBuilder: FormBuilder,
+    private readonly apiService: ApiGatewayService
   ) { }
 
   ngOnInit(): void {
@@ -21,4 +23,32 @@ export class RegisterComponent implements OnInit {
     emailAddress: [null, [Validators.email, Validators.required]],
     password: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]]
   })
+
+  get userName() {
+    return this.signUpForm.get('userName');
+  }
+
+  get emailAddress() {
+    return this.signUpForm.get('emailAddress');
+  }
+
+  get password() {
+    return this.signUpForm.get('password');
+  }
+
+  passwordMatches(pattern: string): boolean {
+    return this.password?.value?.match(RegExp(pattern));
+  }
+
+  register(): void {
+    this.apiService.register(this.signUpForm.value)
+      .subscribe({
+        next: (response) => {
+          console.log(response)
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
+  }
 }

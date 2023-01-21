@@ -12,6 +12,9 @@ import { FormFieldComponent } from './form-field.component';
   imports: [
     CommonModule,
     FormFieldRoutingModule
+  ],
+  exports: [
+    FormFieldComponent
   ]
 })
 export class FormFieldModule { }

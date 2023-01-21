@@ -1,6 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Itim&display=swap');
 
 .welcome-note {
+  margin-top: 5%;
   font-family: 'Gloria Hallelujah', cursive;
-  margin-top: 5%
+}
+
+.secondary-text {
+  font-family: 'Itim', cursive;
+}
+
+label {
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5%
+}
+
+input {
+  padding: 2%;
+  grid-column: span 12;
+  margin-bottom:5%;
+  outline: none;
+  border-radius: 7px;
+  border: 0px;
+}
+
+.primary-button {
+  background-color: #FFB61E ;
+  padding: 2%;
+  border-radius: 7px;
+  margin-top: 2%;
 }
