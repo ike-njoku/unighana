@@ -60,10 +60,13 @@ export class LoginComponent implements OnInit {
     }, 2000);
   }
 
-  register(): void {
+  login(): void {
     this.submitting = true;
     this.fakeLogin();
-
+    /**
+     * The code below would be necessary to send requests to live APIs
+     *
+     */
     // this.apiService.register(this.signUpForm.value)
     //   .subscribe({
     //     next: (response) => {

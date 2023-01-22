@@ -10,7 +10,7 @@
       <label [class.field-error-color]="password?.touched && password?.errors" for="password"
         class="col-12">Password</label>
       <input id="password" type="password" formControlName="password">
-      <button [disabled]="signUpForm.invalid" (click)="register()" class="col-12 primary-button">Submit<span
+      <button id="submitButton" [disabled]="signUpForm.invalid" (click)="login()" class="col-12 primary-button">Submit<span
           *ngIf="submitting">ting
           <app-loader></app-loader>
         </span>
