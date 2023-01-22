@@ -1,5 +1,12 @@
 # Unighana
 
+To register and get successful response, user: admin@admin.com and any password that follows the rules as seen on the password hints. 
+
+for the login routes, use admin@admin.com as well. 
+Any email addresses used, which do not contain 'admin' are bound to return errors.
+
+UNIT TESTS are written in the login route
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
 ## Development server
