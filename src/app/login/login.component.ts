@@ -21,10 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   signUpForm: FormGroup = this.formBuilder.group({
-    userName: [null, [Validators.required]],
     emailAddress: [null, [Validators.email, Validators.required]],
     password: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]],
-    retypePassword: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]]
   })
 
   submitting: boolean = false;
@@ -49,18 +47,33 @@ export class LoginComponent implements OnInit {
     return this.password?.value?.match(RegExp(pattern));
   }
 
+  fakeLogin() {
+    setTimeout(() => {
+      if (this.emailAddress?.value.includes('admin')) {
+        this.notificationService.pushMessage('Welcome, admin', 6000, 'success');
+        this.submitting = false;
+      }
+      else {
+        this.notificationService.pushMessage('Account not found', 6000, 'error');
+        this.submitting = false;
+      }
+    }, 2000);
+  }
+
   register(): void {
     this.submitting = true;
-    this.apiService.register(this.signUpForm.value)
-      .subscribe({
-        next: (response) => {
-          console.log(response);
-          this.submitting = false;
-        },
-        error: (error) => {
-          this.notificationService.pushMessage('Could not create account', 5000, 'error');
-          this.submitting = false;
-        }
-      })
+    this.fakeLogin();
+
+    // this.apiService.register(this.signUpForm.value)
+    //   .subscribe({
+    //     next: (response) => {
+    //       console.log(response);
+    //       this.submitting = false;
+    //     },
+    //     error: (error) => {
+    //       this.notificationService.pushMessage('Could not create account', 5000, 'error');
+    //       this.submitting = false;
+    //     }
+    //   })
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiGatewayService } from '../api-gateway.service';
 import { CREATE_PASSWORD_REGEX } from '../constants';
 import { NotificationService } from '../pop-up-notifications/notification.service';
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private readonly formBuilder: FormBuilder,
     private readonly apiService: ApiGatewayService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -49,18 +51,40 @@ export class RegisterComponent implements OnInit {
     return this.password?.value?.match(RegExp(pattern));
   }
 
+  fakeLogin() {
+    setTimeout(() => {
+
+    }, 2000);
+    if (this.userName?.value.includes('admin')) {
+      this.notificationService.pushMessage('Successfully created your account',
+      6000,
+      'success'
+      )
+      this.submitting = false;
+      setTimeout(() => {
+        this.router.navigate(['/login'])
+      }, 500);
+    }
+
+    else {
+      this.notificationService.pushMessage('Could not create account', 5000, 'error');
+      this.submitting = false;
+    }
+  }
+
   register(): void {
     this.submitting = true;
-    this.apiService.register(this.signUpForm.value)
-      .subscribe({
-        next: (response) => {
-          console.log(response);
-          this.submitting = false;
-        },
-        error: (error) => {
-          this.notificationService.pushMessage('Could not create account', 5000, 'error');
-          this.submitting = false;
-        }
-      })
+    this.fakeLogin();
+    // this.apiService.register(this.signUpForm.value)
+    //   .subscribe({
+    //     next: (response) => {
+    //       console.log(response);
+    //       this.submitting = false;
+    //     },
+    //     error: (error) => {
+    //       this.notificationService.pushMessage('Could not create account', 5000, 'error');
+    //       this.submitting = false;
+    //     }
+    //   })
   }
 }
