@@ -1,0 +1,50 @@
+<div class="grid full-height">
+  <div class="col-5 pad-2 secondary-text form-container">
+    <form [formGroup]="signUpForm" class="grid pad-10">
+      <div class="col-12 header">
+        <h1>Create your account</h1>
+      </div>
+      <label for="userName" class="col-12" [class.field-error-color]="userName?.touched && userName?.errors">User
+        Name</label>
+      <input id="userName" type="text" formControlName="userName">
+      <label [class.field-error-color]="emailAddress?.touched && emailAddress?.errors" for="emailAddress"
+        class="col-12">Email Address</label>
+      <input id="emailAddress" type="email" formControlName="emailAddress">
+      <label [class.field-error-color]="password?.touched && password?.errors" for="password"
+        class="col-12">Password</label>
+      <input id="password" type="password" formControlName="password">
+      <div *ngIf="password?.value" class="col-12 hint">
+        <span [class.field-success-color]="passwordMatches('[A-Z]')">One capital letter, </span>
+        <span [class.field-success-color]="passwordMatches('[0-9]')">One number, </span>
+        <span [class.field-success-color]="passwordMatches('[!@#$%^&*(),.?:{}|<>]')">One special character</span>
+        <span class="float-right" [class.field-success-color]="password?.value?.length >= 6">{{password?.value?.length??
+          0}}/6</span>
+      </div>
+      <label
+        [class.field-error-color]="retypePassword?.value?.length > 0 && retypePassword?.value !== password?.value && retypePassword?.touched"
+        for="retypePasswordField" class="col-12">Retype Password</label>
+      <input type="password" id="retypePasswordField" formControlName="retypePassword">
+      <div *ngIf="retypePassword?.value?.length >0" class="col-12 hint">
+        <span
+          [class.field-success-color]="(password?.value === retypePassword?.value) && password?.value?.length > 0 ">same
+          as password field</span>
+      </div>
+      <button [disabled]="signUpForm.invalid" (click)="register()" class="col-12 primary-button">Submit<span
+          *ngIf="submitting">ting
+          <app-loader></app-loader>
+        </span>
+      </button>
+      <div class="col-12 mg-t-3">Have an account? Sign in</div>
+    </form>
+  </div>
+  <div class="col-7 text-center">
+    <div class="welcome-note secondary-font">
+      <h1>
+        <b>
+          Join 30,000+ companies using our delivery...
+        </b>
+      </h1>
+    </div>
+    <app-register-svg></app-register-svg>
+  </div>
+</div>
