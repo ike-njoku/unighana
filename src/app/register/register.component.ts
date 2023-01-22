@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
   signUpForm: FormGroup = this.formBuilder.group({
     userName: [null, [Validators.required]],
     emailAddress: [null, [Validators.email, Validators.required]],
-    password: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]]
+    password: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]],
+    retypePassword: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]]
   })
 
   submitting: boolean = false;
@@ -38,6 +39,10 @@ export class RegisterComponent implements OnInit {
 
   get password() {
     return this.signUpForm.get('password');
+  }
+
+  get retypePassword() {
+    return this.signUpForm.get('retypePassword');
   }
 
   passwordMatches(pattern: string): boolean {

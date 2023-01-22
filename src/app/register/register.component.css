@@ -4,10 +4,41 @@
 .welcome-note {
   margin-top: 5%;
   font-family: 'Gloria Hallelujah', cursive;
+  margin-bottom: 10%;
+  font-size: larger;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: x-large;
+}
+
+.header {
+  margin-bottom: 10%;
+  font-size: larger;
+}
+
+.hint {
+  font-size: small;
+  margin-top: -3%;
+  margin-bottom: 5%
+}
+
+.float-right {
+  float: right;
 }
 
 .secondary-text {
   font-family: 'Itim', cursive;
+}
+
+.form-container {
+  background-color: black;
+  color: white;
+  overflow: hidden;
 }
 
 label {
@@ -19,14 +50,14 @@ label {
 input {
   padding: 2%;
   grid-column: span 12;
-  margin-bottom:5%;
+  margin-bottom: 5%;
   outline: none;
   border-radius: 7px;
   border: 0px;
 }
 
 .primary-button {
-  background-color: #FFB61E ;
+  background-color: #FFB61E;
   padding: 2%;
   border-radius: 7px;
   margin-top: 2%;
