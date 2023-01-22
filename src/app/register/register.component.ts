@@ -75,6 +75,10 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.submitting = true;
     this.fakeLogin();
+    /**
+     * The code below would be necessary in sending request to LIVE APIs
+     *
+     */
     // this.apiService.register(this.signUpForm.value)
     //   .subscribe({
     //     next: (response) => {
