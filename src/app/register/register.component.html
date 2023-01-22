@@ -34,8 +34,7 @@
       </div>
 
       <button [disabled]="signUpForm.invalid" (click)="register()" class="col-12 primary-button"
-        style="cursor: pointer;">Submit
-        <span>
+        style="cursor: pointer;">Submit<span *ngIf="submitting">ting
           <app-loader></app-loader>
         </span>
       </button>

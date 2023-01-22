@@ -20,6 +20,9 @@
   border: 0px;
   font: var(--primary-font);
 }
+.text-right {
+  text-align: right;
+}
 
 body {
   font-size: large;

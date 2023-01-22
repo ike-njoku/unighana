@@ -26,6 +26,8 @@ export class RegisterComponent implements OnInit {
     password: [null, [Validators.required, Validators.pattern(CREATE_PASSWORD_REGEX)]]
   })
 
+  submitting: boolean = false;
+
   get userName() {
     return this.signUpForm.get('userName');
   }
@@ -43,14 +45,16 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
+    this.submitting = true;
     this.apiService.register(this.signUpForm.value)
       .subscribe({
         next: (response) => {
-          console.log(response)
+          console.log(response);
+          this.submitting = false;
         },
         error: (error) => {
           this.notificationService.pushMessage('Could not create account', 5000, 'error');
-          console.log('called notification service')
+          this.submitting = false;
         }
       })
   }

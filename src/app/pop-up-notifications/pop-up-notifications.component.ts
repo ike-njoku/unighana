@@ -15,6 +15,9 @@ export class PopUpNotificationsComponent implements OnInit {
   message!: string;
   notificationType!: string;
 
+  clearNotification(): string {
+    return this.notificationService.clearNotifications();
+  }
 
   ngOnInit(): void {
     this.message = this.notificationService.message;
