@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiGatewayService } from '../api-gateway.service';
 import { CREATE_PASSWORD_REGEX } from '../constants';
+import { NotificationService } from '../pop-up-notifications/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly apiService: ApiGatewayService
+    private readonly apiService: ApiGatewayService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -47,7 +49,8 @@ export class RegisterComponent implements OnInit {
           console.log(response)
         },
         error: (error) => {
-          console.log(error)
+          this.notificationService.pushMessage('Could not create account', 5000, 'error');
+          console.log('called notification service')
         }
       })
   }

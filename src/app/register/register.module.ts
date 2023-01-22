@@ -5,6 +5,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from './register.component';
 import { RegisterSvgModule } from '../register-svg/register-svg.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PopUpNotificationsModule } from '../pop-up-notifications/pop-up-notifications.module';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterRoutingModule,
     RegisterSvgModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class RegisterModule { }

@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ApiGatewayService } from './api-gateway.service';
+import { NotificationService } from './pop-up-notifications/notification.service';
+import { PopUpNotificationsModule } from './pop-up-notifications/pop-up-notifications.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { ApiGatewayService } from './api-gateway.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PopUpNotificationsModule
   ],
   providers: [
-    ApiGatewayService
+    ApiGatewayService,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })

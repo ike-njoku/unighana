@@ -26,7 +26,7 @@
         <span [class.field-success-color]="(password?.value === retypePasswordField.value) && password?.value?.length > 0 ">same as password field</span>
       </div>
 
-      <button [disabled]="signUpForm.invalid" (click)="register()" class="col-12 primary-button">Submit</button>
+      <button [disabled]="signUpForm.invalid" (click)="register()" class="col-12 primary-button" style="cursor: pointer;">Submit</button>
 
       <div class="col-12 mg-t-3">Have an account? Sign in</div>
 
