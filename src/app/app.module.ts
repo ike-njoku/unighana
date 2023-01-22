@@ -16,7 +16,7 @@ import { PopUpNotificationsModule } from './pop-up-notifications/pop-up-notifica
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PopUpNotificationsModule
+    PopUpNotificationsModule,
   ],
   providers: [
     ApiGatewayService,
