@@ -7,6 +7,10 @@
   margin-bottom: 10%;
   font-size: larger;
 }
+.container {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: #64FCD8;

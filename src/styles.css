@@ -219,6 +219,16 @@ body {
   animation-timing-function: ease-in;
 }
 
+@media (max-width: 720px) {
+  .col-sm-12 {
+    grid-column: span 12;
+  }
+
+  .hide-small-screen {
+    display: none;
+  }
+}
+
 
 /* keyframes */
 
@@ -275,3 +285,5 @@ body {
       opacity: 0
   }
 }
+
+
