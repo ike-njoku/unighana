@@ -25,8 +25,8 @@
 .cancel-button {
   position: absolute;
   top: 0;
-  right: 1%;
-  margin: 1%;
+  left: 1%;
+  margin: 1.7%;
   box-sizing: border-box;
   cursor: pointer;
 }
