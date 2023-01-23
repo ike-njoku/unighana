@@ -1,6 +1,6 @@
 # Unighana
 
-To register and get successful response, user: admin@admin.com and any password that follows the rules as seen on the password hints. 
+To register and get successful response, user: admin@admin.com and any password that follows the rules as seen on the password hints. The userName MUST be
 
 for the login routes, use admin@admin.com as well. 
 Any email addresses used, which do not contain 'admin' are bound to return errors.
